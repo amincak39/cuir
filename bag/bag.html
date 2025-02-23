@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP CUIR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffdbdb;
+        }
+
+        header {
+            background-color: #ecd2d2;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        logo {
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; /* Adjust as needed */
+            color: #333;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            text-shadow: 0 0 0 transparent;
+            display: inline-block;
+            vertical-align: middle; /* Align with nav if needed */
+        }
+
+        .logo img {
+            max-height: 40px; /* Adjust as needed */
+            width: auto;
+            vertical-align: middle; /* Align with text if needed */
+            margin-right: 10px; /* Space between image and text */
+        }
+
+        .logo:hover {
+            color: #f8a7ff;
+            text-shadow: 0 2px 4px rgba(250, 104, 231, 0.877);
+            transform: translateY(-2px);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        .hero {
+            background-image: url('background.jpg'); /* Replace with your hero image */
+            background-size: cover;
+            background-position: center;
+            color: #fcdcdc;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+        }
+        
+
+        .product-listing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            width: 250px; /* Adjust as needed */
+            margin: 10px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(241, 80, 80, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px; /* Rounded corners for the entire product card */
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0; /* Rounded top corners of image */
+            display: block; /* Prevents small space below image */
+        }
+
+        .image-buttons {
+            position:fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .image-buttons {
+            position: relative; /* No longer fixed */
+            bottom: auto; /* Reset bottom positioning */
+            left: auto; /* Reset left positioning */
+            transform: none; /* Reset transform */
+            display: flex;
+            margin-bottom: 20px; /* Space from details */
+        }
+
+        .image-buttons button {
+            margin: 0 5px;
+            padding: 8px 16px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .image-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .product-details h3 {
+            margin-bottom: 5px;
+            color: #f551b6;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-price {
+            color: #1b1515;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .add-to-cart {
+            background-color: #91b5db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            /* ... (Existing footer styles) ... */
+            background-color: #333; /* Darker background color */
+            color: #eee; /* Lighter text color */
+            padding: 30px; /* Increased padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #555; /* Subtle top border */
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        footer a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        .footer-left p, .footer-right p { /* Style paragraphs in the footer */
+            margin: 5px 0; /* Add some margin to paragraphs */
+            font-size: 0.9rem; /* Slightly smaller font size */
+        }
+
+        /* Responsive adjustments for footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                align-items: center; /* Center items */
+                text-align: center; /* Center text */
+            }
+
+            .footer-left, .footer-right {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+         
+        <div class="logo">
+            <img src="logo.png" alt="Your Logo"> 
+            UP CUIR </div>
+        <nav>
+            <ul>
+                <li><a href="#"> </a></li>
+            </ul>
+        </nav>
+    <a href="#" class="about-us-link"> </a>  </header>
+    </header>
+
+    <section class="hero">
+        <h1>Our New Collection</h1>
+        
+    </section>
+
+    <section class="product-listing">
+      </section>
+
+    <script>
+        const productListing = document.querySelector('.product-listing');
+
+        const products = [
+            {
+                name: "Saki",
+                description: "Sac pliable en tissu avec une proche en cuir intégrée, Quand vous le plier , vous obtenez une pochette en cuir chic et pratique, Choix de couleur et du tissu selon disponibilités",
+                price: "99,99 DH",
+                images: ["image1.jpeg", "image3.jpeg"],
+                altText: "Saki"
+            },
+            {
+                name: "Saki",
+                description: "Sac pliable en tissu avec une proche en cuir intégrée, Quand vous le plier , vous obtenez une pochette en cuir chic et pratique , Choix de couleur et du tissu selon disponibilités",
+                price: "99,99 DH",
+                images: ["image2.jpeg"],
+                altText: "Saki"
+            },
+            {
+                name: "Porte monnaie cuir et tissu",
+                description: "Accessoires AMAZIGH ,Choix de couleur et du tissu selon disponibilités",
+                price: "29,99 DH",
+                images: ["1.png", "2.png", "3.png"],
+                altText: "Porte monnaie cuir et tissu",
+            },
+            {
+                name: "Porte clé",
+                description: "AMAZIGH STYLE , Choix de couleur et du tissu selon disponibilités",
+                price: "$15 DH",
+                images: ["4.png", "5.png"],
+                altText: "Porte clé"
+            },
+            
+        ];
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+
+            const img = document.createElement('img');
+            img.src = product.images[0]; // Set initial image
+            img.alt = product.altText;
+            productDiv.appendChild(img);
+
+            const imageButtonsDiv = document.createElement('div');
+            imageButtonsDiv.classList.add('image-buttons');
+
+            product.images.forEach((image, index) => {
+            const imageButton = document.createElement('img'); // Create <img> directly
+            imageButton.src = image; // Set the image source (path to your thumbnail)
+            imageButton.alt = `Image ${index + 1}`; // Alt text for accessibility
+            imageButton.style.maxWidth = "70px"; // Set max width (adjust as needed)
+            imageButton.style.maxHeight = "70px"; // Set max height (adjust as needed)
+            imageButton.style.cursor = "pointer"; // Make it look clickable
+            imageButton.style.margin = "5px";    // Add some spacing
+            imageButton.style.borderRadius = "6px";    // Add some spacing
+            imageButton.onclick = () => {
+            img.src = image; // Change the main product image
+    };
+    imageButtonsDiv.appendChild(imageButton);
+            });
+            productDiv.appendChild(imageButtonsDiv);
+
+            const detailsDiv = document.createElement('div');
+            detailsDiv.classList.add('product-details');
+
+            const h3 = document.createElement('h3');
+            h3.textContent = product.name;
+            detailsDiv.appendChild(h3);
+
+            const priceSpan = document.createElement('span');
+            priceSpan.classList.add('product-price');
+            priceSpan.textContent = product.price;
+            detailsDiv.appendChild(priceSpan);
+            const addToCartButton = document.createElement('button');
+            addToCartButton.classList.add('add-to-cart');
+            addToCartButton.textContent = "ACHETER";
+            addToCartButton.addEventListener('click', () => { // Event listener
+                // Store product info in localStorage (or a better way if you have a backend)
+                localStorage.setItem('product', JSON.stringify(product));  // Store the entire product object
+                window.location.href = 'checkout.html'; // Redirect to checkout page
+            });
+            detailsDiv.appendChild(addToCartButton);
+
+            // ... (Rest of your product display code)
+
+            productDiv.appendChild(detailsDiv);
+            productListing.appendChild(productDiv);
+           
+            const descriptionP = document.createElement('p'); // Create a <p> element
+            descriptionP.classList.add("product-description"); //add class to the paragraph
+            descriptionP.textContent = product.description; // Set its text content
+            detailsDiv.appendChild(descriptionP); // Add it to the details div
+            
+        // ... (Your existing JavaScript for product display) ...
+
+        products.forEach(product => {
+            
+
+            // ... (Rest of your product display code)
+
+            // ... (Rest of your product display code)
+        });
+            
+        
+        });
+
+         
+
+    </script>
+<footer>
+    <div class="footer-left">
+        Contact Us: <a href="UPCUIR@gmail.com">UPCUIR@gmail.com</a> 
+        <br><a href="+212706818550">Whatsapp +212706818550</a>
+                    
+       <br> AGADIR MOROCCO 
+    </div>
+    <div class="footer-right">
+        &copy; 2023 UP CUIR. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>
